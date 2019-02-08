@@ -5,7 +5,7 @@ FROM alpine:latest
 #FROM openjdk:8u151-jre-alpine
 
 # set maintainer
-LABEL maintainer "invhariharan77"
+LABEL maintainer "invhariharan78"
 
 # set a health check
 HEALTHCHECK --interval=5s \
