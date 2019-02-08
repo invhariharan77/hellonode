@@ -2,9 +2,8 @@
 #FROM node:7-onbuild
 FROM openjdk:8u151-jre-alpine
 
-
 # set maintainer
-LABEL maintainer "invhariharan98"
+LABEL maintainer "invhariharan90"
 
 # set a health check
 HEALTHCHECK --interval=5s \
