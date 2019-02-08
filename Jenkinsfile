@@ -10,7 +10,7 @@ node {
     }
 
     stage ('scan') {
-        twistlockScan ca: '', cert: '', compliancePolicy: 'critical', dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'invhariharan/hellonode', key: '', logLevel: 'true', policy: 'critical', requirePackageUpdate: false, timeout: 10
+        twistlockScan ca: '', cert: '', compliancePolicy: 'warn', dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'invhariharan/hellonode', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
     }
 
     stage ('publish') {
