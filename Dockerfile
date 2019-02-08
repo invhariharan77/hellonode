@@ -3,7 +3,7 @@
 FROM alpine:latest
 
 # set maintainer
-LABEL maintainer "miiro@getintodevops.com"
+LABEL maintainer "invhariharan"
 
 # set a health check
 HEALTHCHECK --interval=5s \
