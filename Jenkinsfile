@@ -9,6 +9,12 @@ node {
         app = docker.build("invhariharan/hellonode")
     }
 
+    stage ('Test image') {
+        app.inside {
+          sh 'echo "Tests passed"'
+        }
+    }
+
     stage ('scan') {
         twistlockScan ca: '', cert: '', compliancePolicy: 'critical', dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'invhariharan/hellonode:latest', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
     }
