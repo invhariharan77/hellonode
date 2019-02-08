@@ -1,9 +1,8 @@
 # use a node base image
-# FROM node:7-onbuild
 FROM alpine:latest
 
 # set maintainer
-LABEL maintainer "invhariharan9"
+LABEL maintainer "invhariharan79"
 
 # set a health check
 HEALTHCHECK --interval=5s \
