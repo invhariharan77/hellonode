@@ -23,6 +23,10 @@ node {
         }
     }
 
+    stage ('scan') {
+        twistlockScan ca: '', cert: '', compliancePolicy: 'high', dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'invhariharan/hellonode', key: '', logLevel: 'true', policy: 'high', requirePackageUpdate: false, timeout: 10
+    }
+
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
