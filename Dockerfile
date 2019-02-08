@@ -1,7 +1,7 @@
 # use a node base image
 # FROM node:7-onbuild
 # FROM alpine:latest
-FROM openjdk-alpine:latest
+FROM openjdk:latest
 
 # set maintainer
 LABEL maintainer "invhariharan"
