@@ -2,7 +2,7 @@
 FROM alpine:latest
 
 # set maintainer
-LABEL maintainer "invharihara"
+LABEL maintainer "invhariharannn"
 
 # set a health check
 HEALTHCHECK --interval=5s \
