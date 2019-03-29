@@ -1,9 +1,8 @@
 # use a node base image
-#FROM node:7-onbuild
-FROM openjdk:8u151-jre-alpine
+FROM alpine:latest
 
 # set maintainer
-LABEL maintainer "invhariharan9000"
+LABEL maintainer "invhariharan788929"
 
 # set a health check
 HEALTHCHECK --interval=5s \
