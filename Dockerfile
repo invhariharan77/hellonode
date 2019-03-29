@@ -3,7 +3,7 @@
 FROM openjdk:8u151-jre-alpine
 
 # set maintainer
-LABEL maintainer "invhariharan90"
+LABEL maintainer "invhariharan9990"
 
 # set a health check
 HEALTHCHECK --interval=5s \
