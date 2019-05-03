@@ -1,32 +1,7 @@
 node {
-    def app
-
-    stage('Clone repository') {
-        checkout scm
+    git 'https://github.com/fabric8-quickstarts/node-example.git'
+    if (!fileExists ('Dockerfile')) {
+      writeFile file: 'Dockerfile', text: 'FROM node:5.3-onbuild'
     }
-
-    stage('Build image') {
-        app = docker.build("invhariharan/hellonode")
-    }
-
-    stage ('Test image') {
-        app.inside {
-          sh 'echo "Tests passed"'
-        }
-    }
-
-    stage ('scan') {
-        twistlockScan ca: '', cert: '', compliancePolicy: 'critical', dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'invhariharan/hellonode:latest', key: '', logLevel: 'true', policy: 'critical', requirePackageUpdate: false, timeout: 10
-    }
-
-    stage ('publish') {
-        twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'invhariharan/hellonode:latest', key: '', logLevel: 'true', timeout: 10
-    }
-
-    stage('Push image') {
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-        }
-    }
+    kubernetes.image().withName("example").build().fromPath(".")
 }
