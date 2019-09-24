@@ -1,7 +1,12 @@
+#!/usr/bin/env groovy
+
 node {
-    git 'https://github.com/fabric8-quickstarts/node-example.git'
-    if (!fileExists ('Dockerfile')) {
-      writeFile file: 'Dockerfile', text: 'FROM node:5.3-onbuild'
+    stage('checkout') {
+        checkout scm
     }
-    kubernetes.image().withName("example").build().fromPath(".")
+
+    stage('check java') {
+        sh "java -version"
+    }
+
 }
